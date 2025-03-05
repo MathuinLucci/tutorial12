@@ -71,6 +71,7 @@ function createList(source, outlineList)
 
       if (headLevel !== -1) 
       {
+         
          var listElem = document.createElement("li");
          listElem.innerHTML = n.firstChild.nodeValue;
          outlineList.appendChild(listElem);
@@ -98,6 +99,14 @@ function createList(source, outlineList)
       else
       {
          //Append the list item to a higher level
+         //Calculaate the difference brtweeen the current and previous level
+         var levelUp = prevLevel - headLevel;
+         // Go up to the higher level
+         for (var i = 1; i<= levelUp; i++)
+         {
+            outlineList = outlineList.parentNode.parentNode;
+         }
+         outlineList.appendChild(listElem);
       }
 
    }
