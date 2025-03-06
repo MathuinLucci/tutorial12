@@ -76,14 +76,24 @@ function createList(source, outlineList)
 
       if (headLevel !== -1) 
       {
-         //Add an item to the heading if it is missing
-         if(n.hasAttribute("id") === false) {
+         //Add an id to the heading if it is missing
+         if(n.hasAttribute("id") === false)
+         {
             n.setAttribute("id" , "head" , + headNum);
          }
          
          var listElem = document.createElement("li");
-         listElem.innerHTML = n.firstChild.nodeValue;
-      
+         
+         //Create a hypertext links to the document headings
+         var linkElem = document.createElement("a");
+
+         linkEkem.innerHTML = n.innerHTML;
+         linkElem.setAttribute("href" , "#" , + n.id)
+
+         // Append the hypertext link to the list item listElem.appendChild(linkElem);
+         listElem.appendChild(linkElem);
+
+
          if (headLevel === prevLevel)
          {
             // Append the list item to the current list
