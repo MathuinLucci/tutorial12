@@ -74,9 +74,12 @@ function createList(source, outlineList)
    
       var headLevel = headings.indexOf(n.nodeName);
 
-      if (headLevel !== -1) 
-      {
+      if (headLevel !== -1) {
+
          //Add an id to the heading if it is missing
+         
+         headNum++
+         
          if(n.hasAttribute("id") === false)
          {
             n.setAttribute("id" , "head" , + headNum);
@@ -84,10 +87,10 @@ function createList(source, outlineList)
          
          var listElem = document.createElement("li");
          
-         //Create a hypertext links to the document headings
+         //Create hypertext links to the document headings
          var linkElem = document.createElement("a");
 
-         linkEkem.innerHTML = n.innerHTML;
+         linkElem.innerHTML = n.innerHTML;
          linkElem.setAttribute("href" , "#" , + n.id)
 
          // Append the hypertext link to the list item listElem.appendChild(linkElem);
@@ -118,17 +121,21 @@ function createList(source, outlineList)
             //Append the list item to a higher level
         
         
-            //Calculaate the difference brtweeen the current and previous level
+            //Calculaate the difference between the current and previous level
             var levelUp = prevLevel - headLevel;
             // Go up to the higher level
-            for (var i = 1; i<= levelUp; i++)
+            for (var i = 1; i <= levelUp; i++)
             {
                outlineList = outlineList.parentNode.parentNode;
             }
             outlineList.appendChild(listElem);
          }
 
+         //update the value of prevLevel
+         prevLevel = headLevel;
+
       }
 
    }
+
 }
