@@ -78,7 +78,7 @@ function createList(source, outlineList)
 
          //Add an id to the heading if it is missing
          
-         headNum++
+         headNum++;
          
          if(n.hasAttribute("id") === false)
          {
@@ -91,7 +91,7 @@ function createList(source, outlineList)
          var linkElem = document.createElement("a");
 
          linkElem.innerHTML = n.innerHTML;
-         linkElem.setAttribute("href" , "#" , + n.id)
+         linkElem.setAttribute("href", "#", + n.id);
 
          // Append the hypertext link to the list item listElem.appendChild(linkElem);
          listElem.appendChild(linkElem);

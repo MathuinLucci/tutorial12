@@ -34,8 +34,8 @@ function setupStyles() {
    var buttonDIV = document.createElement("div");
    buttonDIV.setAttribute("id", "styleButtons");
 
-   var webButton = document.createElement("type", "button");
-   webButton.setAttribute("type", "button")
+   var webButton = document.createElement("input");
+   webButton.setAttribute("type", "button");
    webButton.setAttribute("value", "Web View");
 
    var pageButton = document.createElement("input");
@@ -52,10 +52,14 @@ function setupStyles() {
    document.head.appendChild(buttonStyles);
    
    //Add style rules to the embedded style sheet
-   document.styleSheets[document.styleSheets.length-1].insertRule("div#styleButtons { \ position:fixed; \ }" ,0);
+   document.styleSheets[document.styleSheets.length-1].insertRule(
+      "div#styleButtons { \
+      position: fixed; \
+      }" ,0);
 
    document.styleSheets[document.styleSheets.length-1].insertRule( 
-      "div#styleButtons input { \ background-Color: rgba(68, 94, 186, 0.6); \
+      "div#styleButtons input { \
+      background-color: rgba(68, 94, 186, 0.6); \
       border: 3px solid rgba(0, 24, 123, 0.6); \
       border-radius: 50%; \
       cursor: pointer; \
@@ -74,13 +78,13 @@ function setupStyles() {
       } \
       }",2);
 
-      //Turn the paage view style off and on
+      //Turn the page view style off and on
       webButton.onclick = function() {
          pageStyle.disabled = true;
       }
 
-      pageButton.onclick = function()  {
+      pageButton.onclick = function() {
          pageStyle.disabled = false;
-      }
+      };
 
    }
